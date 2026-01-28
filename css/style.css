@@ -1,0 +1,194 @@
+.container {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  align-items: flex-start; /* 중요: 자식 요소들이 각자의 높이를 유지하게 함 */
+}
+
+.detail-content {
+  flex: 1; /* 왼쪽 영역이 남은 공간을 다 차지함 */
+}
+
+.detail-content img {
+  width: 100%;
+  height: auto;
+}
+
+.purchase-sidebar {
+  width: 400px; /* 구매창 너비 */
+  position: sticky;
+  top: 20px; /* 스크롤 시 상단에서 얼마나 떨어져 고정될지 설정 */
+}
+
+/* 구매창 내부 디자인 */
+.sticky-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  background: #fff;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-cart, .btn-buy {
+  flex: 1;
+  padding: 15px;
+  cursor: pointer;
+  border: 1px solid #a76708;
+}
+
+.btn-buy {
+  background-color: #a76708;
+  color: white;
+}
+/* 가격 정보 컨테이너 */
+.price-info {
+  font-family: 'Pretendard', sans-serif;
+  margin-bottom: 20px;
+}
+
+/* 원가 스타일 */
+.original-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+/* 할인율 및 판매가 레이아웃 */
+.sale-price-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.discount-rate {
+  color: #fa622f; /* 주황색 계열 할인율 */
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.current-price {
+  color: #333;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.unit {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* 정보 아이콘 */
+.benefit-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ddd;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* 오늘드림 태그 */
+.tag-delivery {
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: #fff0f5;
+  color: #ff69b4;
+  font-size: 11px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+/* 별점 및 리뷰 레이아웃 */
+.rating-row {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.star {
+  color: #000;
+  margin-right: 4px;
+}
+
+.rating-score {
+  font-weight: 700;
+}
+
+.divider {
+  margin: 0 8px;
+  color: #eee;
+}
+
+.review-count {
+  color: #666;
+}
+.review-count{
+    cursor: pointer;
+}
+
+/* 1. 상자들을 감싸는 전체 영역 */
+.options {
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
+  gap: 10px;               /* 상자 사이 간격 */
+  margin: 20px 0;
+}
+
+/* 2. 실제 클릭하는 선택 상자(select) */
+.options select {
+  width: 100%;             /* 너비 */
+  padding: 12px;           /* 안쪽 여백 (높이감 조절) */
+  border: 1px solid #ddd;  /* 테두리 색상 */
+  border-radius: 4px;      /* 모서리 곡률 */
+  font-size: 14px;         /* 글자 크기 */
+  background-color: #fff;  /* 배경색 */
+  color: #333;             /* 글자 색상 */
+  cursor: pointer;
+  
+  /* 기본 화살표 디자인을 바꾸고 싶을 때 */
+  appearance: none; 
+  background-image: url(../images/Asset\ 1.png); 
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 12px;
+}
+
+/* 3. 상자에 마우스를 올렸을 때(hover)나 클릭했을 때(focus) */
+.options select:focus {
+  border-color: #a76708;   /* 강조 색상으로 변경 */
+  outline: none;
+}
+.selected-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.item-qty {
+  width: 40px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+}
