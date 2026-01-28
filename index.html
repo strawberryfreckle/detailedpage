@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Page</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+  <div class="detail-content">
+    <img src="./images/all.png" alt="상세이미지 예시">
+  </div>
+
+  <aside class="purchase-sidebar">
+    <div class="sticky-box">
+      <h2>[특가] 팬틴 극손상케어 트리트먼트</h2>
+      <div class="price-info">
+  <div class="original-price">8,900원</div>
+  
+  <div class="sale-price-row">
+    <span class="discount-rate">50%</span>
+    <span class="current-price">4,450</span><span class="unit">원~</span>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag-delivery">오늘드림</span>
+  </div>
+
+  <div class="rating-row">
+    <span class="star">★</span>
+    <span class="rating-score">4.8</span>
+    <span class="divider">|</span>
+    <span class="review-count">리뷰 5,910건</span>
+  </div>
+</div>
+    
+<div class="options">
+  <select name="product-select" id="productSelect">
+    <option value="">옵션을 선택해 주세요</option>
+    <option value="silk">일반용 220ml</option>
+    <option value="damage">대용량 500ml</option>
+  </select>
+
+  <select name="quantity-select" id="quantitySelect">
+    <option value="">수량을 선택해 주세요</option>
+    <option value="1">1개</option>
+    <option value="2">2개</option>
+    <option value="3">3개</option>
+  </select>
+</div>
+<div id="selectedOptions" class="selected-container"></div>
+
+      <div class="button-group">
+        <button class="btn-cart">장바구니</button>
+        <button class="btn-buy">구매하기</button>
+      </div>
+    </div>
+  </aside>
+  
+</div>
+<script>
+    const productSelect = document.getElementById('productSelect');
+const selectedContainer = document.getElementById('selectedOptions');
+
+productSelect.addEventListener('change', function() {
+  const selectedText = this.options[this.selectedIndex].text;
+  const selectedValue = this.value;
+
+  if (selectedValue === "") return; // 기본 문구 선택 시 무시
+
+  // 이미 선택된 항목인지 확인 (중복 방지)
+  if (document.getElementById('item-' + selectedValue)) {
+    alert('이미 선택된 옵션입니다.');
+    return;
+  }
+
+  // 선택된 항목 박스 만들기
+  const item = document.createElement('div');
+  item.id = 'item-' + selectedValue;
+  item.className = 'selected-item';
+  item.innerHTML = `
+    <span>${selectedText}</span>
+    <input type="number" value="1" min="1" class="item-qty">
+    <button class="remove-btn">X</button>
+  `;
+
+  // 삭제 버튼 기능
+  item.querySelector('.remove-btn').onclick = function() {
+    item.remove();
+  };
+
+  selectedContainer.appendChild(item);
+});
+</script>
+</body>
+<style>
+    
+</style>
+</html>
